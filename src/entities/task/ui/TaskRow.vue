@@ -1,17 +1,26 @@
 <script setup lang="ts">
-import { toRefs } from "vue";
+import { cn } from '@/lib/utils';
+import { toRefs, } from "vue";
 import type { Task } from "../types";
 
-type TaskRowProps = Task;
+type TaskRowProps = Pick<Task, 'title' | 'isDone'>;
+type TaskRowEmits = {
+  toggle: [];
+};
 
 const props = defineProps<TaskRowProps>();
+const emit = defineEmits<TaskRowEmits>();
 
-const { title } = toRefs(props);
+const { title, isDone } = toRefs(props);
 </script>
 
 <template>
   <div class="rounded-sm border border-gray-600 px-4 py-2 flex items-center gap-3">
-    <h2 class="flex-1 text-2xl text-ellipsis overflow-hidden">{{ title }}</h2>
+    <input type="checkbox" :checked="isDone" @change="emit('toggle')" />
+    <h2
+      :class="cn('flex-1 text-2xl text-ellipsis overflow-hidden', isDone && 'line-through')">
+      {{ title }}
+    </h2>
     <div>
       <slot name="after" />
     </div>

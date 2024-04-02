@@ -10,10 +10,12 @@ const tasks = ref<Task[]>([
   {
     id: "0",
     title: "Task 1",
+    isDone: true,
   },
   {
     id: "1",
     title: "Task 2",
+    isDone: false,
   },
 ]);
 
@@ -30,9 +32,23 @@ const addTask = () => {
   tasks.value.push({
     id: String(tasks.value.length),
     title: newTask.value,
+    isDone: false,
   });
 
   newTask.value = "";
+};
+
+const toggleTask = (id: string) => {
+  tasks.value = tasks.value.map((task) => {
+    if (task.id === id) {
+      return {
+        ...task,
+        isDone: !task.isDone,
+      };
+    }
+
+    return task;
+  });
 };
 </script>
 
@@ -40,8 +56,8 @@ const addTask = () => {
   <div class="max-w-md mx-auto space-y-2">
     <h1 class="text-7xl text-center">Tasks</h1>
     <ul class="grid gap-2">
-      <li v-for="{ title, id } in tasks" :key="title">
-        <TaskRow :id="id" :title="title">
+      <li v-for="{ title, id, isDone } in tasks" :key="title">
+        <TaskRow :title="title" :is-done="isDone" @toggle="toggleTask(id)">
           <template #after>
             <Button class="rounded-full" variant="ghost" @click="deleteTask(id)">
               <Trash2Icon />
