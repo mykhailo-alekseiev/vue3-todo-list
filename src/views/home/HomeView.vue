@@ -5,7 +5,11 @@ import { Input } from "@/components/ui/input";
 import Label from '@/components/ui/label/Label.vue';
 import { type Task, TaskRow } from "@/entities/task";
 import { PlusIcon, Trash2Icon } from "lucide-vue-next";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref, watchEffect } from "vue";
+import { useRoute, useRouter } from 'vue-router';
+
+const router = useRouter();
+const route = useRoute();
 
 const newTask = ref('');
 const filters = ref({
@@ -75,6 +79,21 @@ const filteredTasks = computed<Task[]>(() => {
     return true;
   });
 });
+
+onMounted(() => {
+  filters.value.isDone = route.query.isDone === 'true';
+  filters.value.search = route.query.search as string || '';
+});
+
+watchEffect(() => {
+  router.push({
+    query: {
+      search: filters.value.search || undefined,
+      isDone: filters.value.isDone.toString(),
+    },
+  });
+});
+
 </script>
 
 <template>
@@ -87,7 +106,7 @@ const filteredTasks = computed<Task[]>(() => {
       </div>
       <Input v-model.trim="filters.search" placeholder="Search tasks" />
     </div>
-    <ul class="grid gap-2">
+    <ul v-if="!!filteredTasks.length" class="grid gap-2">
       <li v-for="{ title, id, isDone } in filteredTasks" :key="title">
         <TaskRow :title="title" :is-done="isDone" @toggle="toggleTask(id)">
           <template #after>
@@ -98,8 +117,11 @@ const filteredTasks = computed<Task[]>(() => {
         </TaskRow>
       </li>
     </ul>
+    <p v-else>
+      No tasks.
+    </p>
     <div class="flex items-center gap-3">
-      <Input clas="flex-1" v-model.trim="newTask" placeholder="Add a new task" />
+      <Input class="flex-1" v-model.trim="newTask" placeholder="Add a new task" />
       <Button class="rounded-full" @click="addTask">
         <PlusIcon />
       </Button>
