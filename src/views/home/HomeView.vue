@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
-import { Checkbox } from '@/components/ui/checkbox';
-import { Input } from "@/components/ui/input";
-import Label from '@/components/ui/label/Label.vue';
 import { type Task, TaskRow } from "@/entities/task";
+import { Button } from '@/shared/components/ui/button';
+import { Checkbox } from '@/shared/components/ui/checkbox';
+import { Input } from "@/shared/components/ui/input";
+import Label from '@/shared/components/ui/label/Label.vue';
 import { PlusIcon, Trash2Icon } from "lucide-vue-next";
 import { computed, onMounted, ref, watchEffect } from "vue";
 import { useRoute, useRouter } from 'vue-router';
@@ -107,7 +107,7 @@ watchEffect(() => {
       <Input v-model.trim="filters.search" placeholder="Search tasks" />
     </div>
     <ul v-if="!!filteredTasks.length" class="grid gap-2">
-      <li v-for="{ title, id, isDone } in filteredTasks" :key="title">
+      <li v-for="{ title, id, isDone } in filteredTasks" :key="id">
         <TaskRow :title="title" :is-done="isDone" @toggle="toggleTask(id)">
           <template #after>
             <Button class="rounded-full" variant="ghost" @click="deleteTask(id)">
@@ -121,11 +121,12 @@ watchEffect(() => {
       No tasks.
     </p>
     <div class="flex items-center gap-3">
-      <Input class="flex-1" v-model.trim="newTask" placeholder="Add a new task" />
+      <Input class="flex-1" v-model.trim="newTask" @keyup.enter="addTask"
+        placeholder="Add a new task" />
       <Button class="rounded-full" @click="addTask">
         <PlusIcon />
       </Button>
     </div>
   </div>
 
-</template>
+</template>@/shared/components/ui/button@/shared/components/ui/checkbox@/shared/components/ui/input

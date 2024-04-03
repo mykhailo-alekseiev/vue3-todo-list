@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Checkbox } from "@/components/ui/checkbox";
-import { cn } from "@/lib/utils";
+import { Checkbox } from "@/shared/components/ui/checkbox";
+import { cn } from "@/shared/lib/utils";
 import { toRefs } from "vue";
 import type { Task } from "../types";
 
@@ -27,4 +27,4 @@ const { title, isDone } = toRefs(props);
       <slot name="after" />
     </div>
   </div>
-</template>
+</template>@/shared/components/ui/checkbox@/shared/lib/utils
