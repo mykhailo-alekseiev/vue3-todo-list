@@ -1,3 +1,3 @@
-export * from "./ui";
-export * from "./types";
+export { default as Sidebar } from "./ui/Sidebar.vue";
+export type { SidebarNavItem } from "./types";
 export * from "./model";

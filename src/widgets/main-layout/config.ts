@@ -7,4 +7,4 @@ export const SIDEBAR_NAV_ITEMS = [
 		label: "Todos",
 		to: "/",
 	},
-] as const satisfies Array<SidebarNavItem>;
+] satisfies Array<SidebarNavItem>;

@@ -21,4 +21,3 @@ const delegatedProps = computed(() => {
     <slot />
   </Label>
 </template>
-@/shared/lib/utils

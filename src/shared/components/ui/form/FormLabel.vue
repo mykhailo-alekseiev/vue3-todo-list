@@ -18,4 +18,3 @@ const { error, formItemId } = useFormField();
     <slot />
   </Label>
 </template>
-@/shared/components/ui/label@/shared/lib/utils

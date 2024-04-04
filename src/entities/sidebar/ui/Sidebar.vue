@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { cn } from '@/shared/lib/utils';
 import { storeToRefs } from 'pinia';
-import { useSidebarStore } from '../model';
-import type { SidebarNavItem } from '../types';
+import type { SidebarNavItem } from 'src/entities/sidebar/types';
+import { useSidebarModel } from '../model';
 
 type SidebarProps = {
   class?: string;
@@ -14,12 +14,11 @@ withDefaults(defineProps<SidebarProps>(), {
   border: 'right',
 });
 
-const store = useSidebarStore();
+const store = useSidebarModel();
 const { isOpen } = storeToRefs(store);
 </script>
 
 <template>
-
   <div :class="cn(
     'h-full max-w-sm px-8 py-12 flex-col md:flex gap-14 border-neutral-200',
     $props.border == 'left' ? 'md:border-l' : 'md:border-r',
@@ -40,4 +39,4 @@ const { isOpen } = storeToRefs(store);
       <slot name="after" />
     </div>
   </div>
-</template>@/shared/lib/utils
+</template>

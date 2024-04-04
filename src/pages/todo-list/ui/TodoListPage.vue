@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { type Task, TaskRow } from "@/entities/task";
-import { Button } from '@/shared/components/ui/button';
-import { Checkbox } from '@/shared/components/ui/checkbox';
-import { Input } from "@/shared/components/ui/input";
-import Label from '@/shared/components/ui/label/Label.vue';
+import { Button } from '@components/ui/button';
+import { Checkbox } from '@components/ui/checkbox';
+import { Input } from "@components/ui/input";
+import { Label } from '@components/ui/label';
 import { PlusIcon, Trash2Icon } from "lucide-vue-next";
 import { computed, onMounted, ref, watchEffect } from "vue";
 import { useRoute, useRouter } from 'vue-router';
@@ -102,11 +102,11 @@ watchEffect(() => {
     <div class="grid grid-cols-[auto_1fr] items-center gap-3">
       <div class="flex items-center gap-2">
         <Checkbox class="size-4" id="isDone" v-model:checked="filters.isDone" />
-        <Label for="isDone" class="text-lg"> Is done </Label>
+        <Label for="isDone" class="text-lg">Is done </Label>
       </div>
       <Input v-model.trim="filters.search" placeholder="Search tasks" />
     </div>
-    <ul v-if="!!filteredTasks.length" class="grid gap-2">
+    <ul v-if="filteredTasks.length" class="grid gap-2">
       <li v-for="{ title, id, isDone } in filteredTasks" :key="id">
         <TaskRow :title="title" :is-done="isDone" @toggle="toggleTask(id)">
           <template #after>
@@ -129,4 +129,4 @@ watchEffect(() => {
     </div>
   </div>
 
-</template>@/shared/components/ui/button@/shared/components/ui/checkbox@/shared/components/ui/input
+</template>

@@ -15,4 +15,3 @@ const { formDescriptionId } = useFormField();
     <slot />
   </p>
 </template>
-@/shared/lib/utils

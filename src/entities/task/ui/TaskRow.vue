@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Checkbox } from "@/shared/components/ui/checkbox";
 import { cn } from "@/shared/lib/utils";
+import type { Task } from "src/entities/task/types";
 import { toRefs } from "vue";
-import type { Task } from "../types";
 
 type TaskRowProps = Pick<Task, "title" | "isDone">;
 type TaskRowEmits = {
@@ -27,4 +27,4 @@ const { title, isDone } = toRefs(props);
       <slot name="after" />
     </div>
   </div>
-</template>@/shared/components/ui/checkbox@/shared/lib/utils
+</template>
