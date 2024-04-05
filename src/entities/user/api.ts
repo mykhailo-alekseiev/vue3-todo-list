@@ -1,6 +1,6 @@
-import { TEST_ACCESS_TOKEN, TEST_USER_DATA } from "@/shared/config/test";
-import { useAuthModel } from "../auth";
-import type { User } from "./types";
+import { TEST_ACCESS_TOKEN, TEST_USER_DATA } from '@/shared/config/test';
+import { useAuthModel } from '../auth';
+import type { User } from './types';
 
 export const fetchUser = async (): Promise<{
 	data: User;
@@ -18,7 +18,7 @@ export const fetchUser = async (): Promise<{
 					},
 				});
 			}
-			reject(new Error("Invalid access token"));
+			reject(new Error('Invalid access token'));
 		}, 1000);
 	});
 };

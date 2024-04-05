@@ -1,10 +1,10 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
 type SidebarModel = {
 	isOpen: boolean;
 };
 
-export const useSidebarModel = defineStore("sidebar", {
+export const useSidebarModel = defineStore('sidebar', {
 	state: (): SidebarModel => ({
 		isOpen: false,
 	}),

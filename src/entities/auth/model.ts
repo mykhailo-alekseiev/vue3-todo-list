@@ -1,14 +1,14 @@
-import { resetAppStore } from "@/shared/lib/pinia";
-import { defineStore } from "pinia";
-import { AuthApi } from "./index";
+import { resetAppStore } from '@/shared/lib/pinia';
+import { defineStore } from 'pinia';
+import { AuthApi } from './index';
 
 type AuthModel = {
 	accessToken: string;
 };
 
-export const useAuthModel = defineStore("auth", {
+export const useAuthModel = defineStore('auth', {
 	state: (): AuthModel => ({
-		accessToken: "",
+		accessToken: '',
 	}),
 	getters: {
 		isAuthorized(state) {

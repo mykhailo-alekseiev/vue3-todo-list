@@ -1,7 +1,7 @@
-import { useAuthModel } from "@/entities/auth";
-import { RouteName } from "@/shared/config/routes";
-import { createRouter, createWebHistory } from "vue-router";
-import { routes } from "./routes";
+import { useAuthModel } from '@/entities/auth';
+import { RouteName } from '@/shared/config/routes';
+import { createRouter, createWebHistory } from 'vue-router';
+import { routes } from './routes';
 
 export const router = createRouter({
 	history: createWebHistory(),

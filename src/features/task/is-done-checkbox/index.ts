@@ -1,1 +1,1 @@
-export { default as IsDoneTaskCheckbox } from "./ui/IsDoneTaskCheckbox.vue";
+export { default as IsDoneTaskCheckbox } from './ui/IsDoneTaskCheckbox.vue';

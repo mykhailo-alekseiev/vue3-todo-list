@@ -1,2 +1,2 @@
-export { default as EmailLoginForm } from "./ui/EmailLoginForm.vue";
-export type { EmailLogInFormType } from "./schemas";
+export { default as EmailLoginForm } from './ui/EmailLoginForm.vue';
+export type { EmailLogInFormType } from './schemas';

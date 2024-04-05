@@ -1,7 +1,4 @@
-<script lang="ts" setup>
-</script>
 <template>
-  <div>
-    Loading ...
-  </div>
+	<div>Loading ...</div>
 </template>
+<script lang="ts" setup></script>

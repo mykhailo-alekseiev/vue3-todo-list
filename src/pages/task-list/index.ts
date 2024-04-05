@@ -1,1 +1,1 @@
-export { default } from "./ui/TaskListPage.vue";
+export { default } from './ui/TaskListPage.vue';

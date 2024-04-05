@@ -1,2 +1,2 @@
-export { router } from "./router";
-export { pinia } from "./pinia";
+export { router } from './router';
+export { pinia } from './pinia';

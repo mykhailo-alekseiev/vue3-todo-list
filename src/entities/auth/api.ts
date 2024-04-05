@@ -1,4 +1,4 @@
-import { TEST_ACCESS_TOKEN, TEST_USER_DATA } from "@/shared/config/test";
+import { TEST_ACCESS_TOKEN, TEST_USER_DATA } from '@/shared/config/test';
 
 type LoginByEmailParams = {
 	email: string;
@@ -23,7 +23,7 @@ export const loginByEmail = async ({ email, password }: LoginByEmailParams) => {
 				});
 			}
 
-			reject(new Error("Invalid email or password"));
+			reject(new Error('Invalid email or password'));
 		}, 3000);
 	});
 };

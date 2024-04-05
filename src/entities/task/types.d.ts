@@ -4,7 +4,7 @@ export type Task = {
 	isDone: boolean;
 };
 
-type TaskListFilters = {
+export type TaskListFilters = {
 	isDone: boolean;
 	search: string;
 };

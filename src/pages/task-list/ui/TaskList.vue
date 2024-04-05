@@ -1,21 +1,19 @@
 <template>
-  <ul class="grid gap-2" v-auto-animate>
-    <template v-if="filteredTasks.length">
-      <li v-for="{ title, id, isDone } in filteredTasks" :key="id">
-        <TaskRow :title="title" :is-done="isDone">
-          <template #before>
-            <IsDoneTaskCheckbox :id="id" />
-          </template>
-          <template #after>
-            <DeleteTaskButton :id="id" />
-          </template>
-        </TaskRow>
-      </li>
-    </template>
-    <li v-else>
-      No tasks.
-    </li>
-  </ul>
+	<ul v-auto-animate class="grid gap-2">
+		<template v-if="filteredTasks.length">
+			<li v-for="{ title, id, isDone } in filteredTasks" :key="id">
+				<TaskRow :title="title" :is-done="isDone">
+					<template #before>
+						<IsDoneTaskCheckbox :id="id" />
+					</template>
+					<template #after>
+						<DeleteTaskButton :id="id" />
+					</template>
+				</TaskRow>
+			</li>
+		</template>
+		<li v-else>No tasks.</li>
+	</ul>
 </template>
 
 <script setup lang="ts">

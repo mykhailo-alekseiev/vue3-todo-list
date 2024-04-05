@@ -1,12 +1,11 @@
-import type { Component } from "vue";
-import "vue-router";
+import type { Component } from 'vue';
+import 'vue-router';
 
-declare module "vue-router" {
+declare module 'vue-router' {
 	interface RouteMeta {
-		requiresAuth: boolean;
+		requiresAuth?: boolean;
 
 		layout?: Component;
 		fallback?: Component;
-		navigation?: Component;
 	}
 }

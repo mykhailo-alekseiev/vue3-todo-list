@@ -1,10 +1,20 @@
 <template>
-  <div class="flex items-center gap-3">
-    <Input class="flex-1" v-model.trim="newTask" @keyup.enter="addTask"
-      :disabled="isLoading" placeholder="Add a new task" />
-    <Button class="rounded-full" @click="addTask" :disabled="!newTask"
-      :is-loading="isLoading" :icon="PlusIcon" />
-  </div>
+	<div class="flex items-center gap-3">
+		<Input
+			v-model.trim="newTask"
+			class="flex-1"
+			:disabled="isLoading"
+			placeholder="Add a new task"
+			@keyup.enter="addTask"
+		/>
+		<Button
+			class="rounded-full"
+			:disabled="!newTask"
+			:is-loading="isLoading"
+			:icon="PlusIcon"
+			@click="addTask"
+		/>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -20,13 +30,12 @@ const newTask = ref('');
 const isLoading = ref(false);
 
 const addTask = async () => {
-  isLoading.value = true;
+	isLoading.value = true;
 
-  await taskModel.createTask({ title: newTask.value });
+	await taskModel.createTask({ title: newTask.value });
 
-  isLoading.value = false;
+	isLoading.value = false;
 
-  newTask.value = "";
+	newTask.value = '';
 };
-
 </script>

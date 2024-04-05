@@ -1,19 +1,19 @@
-import { defineStore } from "pinia";
-import type { UpdateTaskDto } from "./api";
-import { type Task, TaskApi } from "./index";
-import type { TaskListFilters } from "./types";
+import { defineStore } from 'pinia';
+import type { UpdateTaskDto } from './api';
+import { type Task, TaskApi } from './index';
+import type { TaskListFilters } from './types';
 
 type TaskModel = {
 	queryTasks: Record<string, Task>;
 	filters: TaskListFilters;
 };
 
-export const useTaskModel = defineStore("task", {
+export const useTaskModel = defineStore('task', {
 	state: (): TaskModel => ({
 		queryTasks: {},
 		filters: {
 			isDone: false,
-			search: "",
+			search: '',
 		},
 	}),
 	getters: {
@@ -45,7 +45,7 @@ export const useTaskModel = defineStore("task", {
 		async fetchTasks() {
 			try {
 				const { tasks } = await TaskApi.fetchTasks();
-				this.queryTasks = tasks.reduce<TaskModel["queryTasks"]>((acc, task) => {
+				this.queryTasks = tasks.reduce<TaskModel['queryTasks']>((acc, task) => {
 					acc[task.id] = task;
 					return acc;
 				}, {});
@@ -55,7 +55,7 @@ export const useTaskModel = defineStore("task", {
 				return { result: null, error };
 			}
 		},
-		async createTask({ title }: Pick<Task, "title">) {
+		async createTask({ title }: Pick<Task, 'title'>) {
 			try {
 				const newTask = await TaskApi.createTask({ title });
 				this.queryTasks[newTask.id] = newTask;

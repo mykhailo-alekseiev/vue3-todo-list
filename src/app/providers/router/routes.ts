@@ -1,11 +1,11 @@
-import { useAuthModel } from "@/entities/auth";
-import { RouteName } from "@/shared/config/routes";
-import { MainLayout } from "@/widgets/main-layout";
-import type { RouteRecordRaw } from "vue-router";
+import { useAuthModel } from '@/entities/auth';
+import { RouteName } from '@/shared/config/routes';
+import { MainLayout } from '@/widgets/main-layout';
+import type { RouteRecordRaw } from 'vue-router';
 
 export const routes: Array<RouteRecordRaw> = [
 	{
-		path: "/",
+		path: '/',
 		redirect: () => {
 			const { isAuthorized } = useAuthModel();
 
@@ -23,24 +23,24 @@ export const routes: Array<RouteRecordRaw> = [
 		},
 	},
 	{
-		path: "/log-in",
+		path: '/log-in',
 		name: RouteName.LOGIN,
-		component: () => import("@/pages/log-in"),
+		component: () => import('@/pages/log-in'),
 		meta: { requiresAuth: false },
 	},
 	{
-		path: "/",
+		path: '',
 		meta: { requiresAuth: true, layout: MainLayout },
 		children: [
 			{
-				path: "todo-list",
+				path: 'todo-list',
 				name: RouteName.TASK_LIST,
-				component: () => import("@/pages/task-list"),
+				component: () => import('@/pages/task-list'),
 			},
 			{
-				path: "user-profile",
+				path: 'user-profile',
 				name: RouteName.USER_PROFILE,
-				component: () => import("@/pages/user-profile"),
+				component: () => import('@/pages/user-profile'),
 			},
 		],
 	},

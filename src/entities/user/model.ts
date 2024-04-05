@@ -1,13 +1,13 @@
-import { defineStore } from "pinia";
-import { type User, UserApi } from "./index";
+import { defineStore } from 'pinia';
+import { type User, UserApi } from './index';
 
 type UserModel = User;
 
-export const useUserModel = defineStore("user", {
+export const useUserModel = defineStore('user', {
 	state: (): UserModel => ({
-		id: "",
-		username: "",
-		email: "",
+		id: '',
+		username: '',
+		email: '',
 	}),
 	actions: {
 		async fetchUser() {
