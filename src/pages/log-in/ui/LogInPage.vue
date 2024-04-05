@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useAuthModel } from '@/entities/auth';
-import { type EmailLogInFormType, EmailLoginForm } from '@/features/email-login-form';
+import { type EmailLogInFormType, EmailLoginForm } from '@/features/email-login';
 import { RouteName } from '@/shared/config/routes';
 import { useRouter } from 'vue-router';
 import { toast } from 'vue-sonner';
@@ -31,4 +31,4 @@ const handleFormSubmit = async (values: EmailLogInFormType) => {
       <EmailLoginForm :on-submit="handleFormSubmit" />
     </div>
   </div>
-</template>
+</template>@/features/email-login

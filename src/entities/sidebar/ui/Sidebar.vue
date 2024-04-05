@@ -30,7 +30,7 @@ const { isOpen } = storeToRefs(store);
     </RouterLink>
     <nav class="flex-1 flex flex-col gap-4">
       <RouterLink v-for="link in $props.navLinks" :key="link.to" :to="link.to"
-        class="text-3xl font-medium flex items-center gap-3 hover:bg-neutral-100 rounded-sm p-2 transition-colors">
+        class="text-2xl font-medium flex items-center gap-2 hover:bg-neutral-100 rounded-sm p-2 transition-colors">
         <component :is="link.icon" />
         <span>{{ link.label }}</span>
       </RouterLink>

@@ -50,16 +50,12 @@ const addTask = () => {
 };
 
 const toggleTask = (id: string) => {
-  tasks.value = tasks.value.map((task) => {
-    if (task.id === id) {
-      return {
-        ...task,
-        isDone: !task.isDone,
-      };
-    }
+  const task = tasks.value.find((task) => task.id === id);
+  if (!task) {
+    throw new Error(`Task with id ${id} not found`);
+  }
 
-    return task;
-  });
+  task.isDone = !task.isDone;
 };
 
 const filteredTasks = computed<Task[]>(() => {
