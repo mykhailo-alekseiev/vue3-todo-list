@@ -3,3 +3,8 @@ export type Task = {
 	title: string;
 	isDone: boolean;
 };
+
+type TaskListFilters = {
+	isDone: boolean;
+	search: string;
+};

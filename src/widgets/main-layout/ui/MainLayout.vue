@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Sidebar } from '@/entities/sidebar';
-import { LogOutButton } from '@/features/log-out';
+import { LogOutButton } from '@/features/auth/log-out';
 import { SIDEBAR_NAV_ITEMS } from '../config';
 </script>
 
@@ -11,6 +11,6 @@ import { SIDEBAR_NAV_ITEMS } from '../config';
         <LogOutButton />
       </template>
     </Sidebar>
-    <RouterView />
+    <slot />
   </div>
 </template>

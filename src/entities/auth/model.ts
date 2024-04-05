@@ -1,28 +1,28 @@
+import { resetAppStore } from "@/shared/lib/pinia";
 import { defineStore } from "pinia";
-import { AuthApi, type User } from "./index";
+import { AuthApi } from "./index";
 
-type UserState = User;
+type AuthModel = {
+	accessToken: string;
+};
 
 export const useAuthModel = defineStore("auth", {
-	state: (): UserState => ({
-		id: "",
-		username: "",
-		email: "",
+	state: (): AuthModel => ({
+		accessToken: "",
 	}),
 	getters: {
 		isAuthorized(state) {
-			return !!state.id;
+			return !!state.accessToken;
 		},
 	},
 	actions: {
 		async loginByEmail(payload: Parameters<typeof AuthApi.loginByEmail>[0]) {
 			const { data } = await AuthApi.loginByEmail(payload);
 
-			const { id, email, username } = data;
-
-			this.id = id;
-			this.email = email;
-			this.username = username;
+			this.accessToken = data.access_token;
+		},
+		logout() {
+			resetAppStore();
 		},
 	},
 	persist: true,

@@ -34,7 +34,8 @@ const handleFormSubmit = handleSubmit(async (values) => {
       <FormItem v-auto-animate>
         <FormLabel>Email</FormLabel>
         <FormControl>
-          <Input type="email" placeholder="example@gmail.com" v-bind="componentField" />
+          <Input :disabled="isSubmitting" type="email" placeholder="example@gmail.com"
+            v-bind="componentField" />
         </FormControl>
         <FormMessage />
       </FormItem>
@@ -43,12 +44,13 @@ const handleFormSubmit = handleSubmit(async (values) => {
       <FormItem v-auto-animate>
         <FormLabel>Password</FormLabel>
         <FormControl>
-          <Input type="password" placeholder="******" v-bind="componentField" />
+          <Input :disabled="isSubmitting" type="password" placeholder="******"
+            v-bind="componentField" />
         </FormControl>
         <FormMessage />
       </FormItem>
     </FormField>
-    <Button :disabled="isSubmitting" type="submit">
+    <Button :is-loading="isSubmitting" type="submit">
       Submit
     </Button>
   </form>

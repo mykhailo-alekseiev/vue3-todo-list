@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useAuthModel } from '@/entities/auth';
-import { type EmailLogInFormType, EmailLoginForm } from '@/features/email-login';
+import { type EmailLogInFormType, EmailLoginForm } from '@/features/auth/email-login';
 import { RouteName } from '@/shared/config/routes';
 import { useRouter } from 'vue-router';
 import { toast } from 'vue-sonner';
@@ -13,7 +13,7 @@ const handleFormSubmit = async (values: EmailLogInFormType) => {
   try {
     await loginByEmail(values);
     toast.success('Success!');
-    await router.push({ name: RouteName.TODO_LIST, replace: true });
+    await router.push({ name: RouteName.TASK_LIST, replace: true });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Please try again later.';
     toast.error('An error occurred!', {

@@ -1,4 +1,5 @@
 export enum RouteName {
-	TODO_LIST = "todo-list",
+	TASK_LIST = "task-list",
 	LOGIN = "login",
+	USER_PROFILE = "user-profile",
 }

@@ -4,3 +4,5 @@ export const TEST_USER_DATA = {
 	password: "123456",
 	username: "Test User",
 } as const;
+
+export const TEST_ACCESS_TOKEN = "test-access-token";
