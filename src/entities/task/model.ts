@@ -49,9 +49,9 @@ export const useTaskModel = defineStore('task', {
 					return acc;
 				}, {});
 
-				return { result: tasks, error: null };
+				return tasks;
 			} catch (error) {
-				return { result: null, error };
+				throw error;
 			}
 		},
 		async createTask({ title }: Pick<Task, 'title'>) {

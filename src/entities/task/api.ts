@@ -5,10 +5,13 @@ export const fetchTasks = async (): Promise<{
 	tasks: Array<Task>;
 }> => {
 	return await new Promise((resolve) => {
-		// @ts-ignore
-		const tasks = JSON.parse(localStorage.getItem('task'))?.queryTasks;
+		const tasks = Object.values(
+			// @ts-ignore
+			JSON.parse(localStorage.getItem('task'))?.queryTasks,
+		);
 		setTimeout(() => {
 			resolve({
+				// @ts-ignore
 				tasks: tasks ?? MOCK_TASKS,
 			});
 		}, 1000);
