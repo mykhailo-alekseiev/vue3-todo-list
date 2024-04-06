@@ -27,7 +27,7 @@ import {
 	CheckboxRoot,
 	useForwardPropsEmits,
 } from 'radix-vue';
-import { type HTMLAttributes, computed } from 'vue';
+import { type HTMLAttributes } from 'vue';
 
 const props = defineProps<
 	CheckboxRootProps & { class?: HTMLAttributes['class'] }

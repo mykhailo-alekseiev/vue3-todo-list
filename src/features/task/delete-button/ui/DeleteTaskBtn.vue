@@ -12,7 +12,6 @@
 import { useTaskModel } from '@/entities/task';
 import { Button } from '@/shared/components/ui/button';
 import { Trash2Icon } from 'lucide-vue-next';
-import { ref } from 'vue';
 
 const { id } = defineProps<{ id: string }>();
 

@@ -11,7 +11,6 @@ import Checkbox from '@/shared/components/ui/checkbox/Checkbox.vue';
 <script setup lang="ts">
 import { useTaskModel } from '@/entities/task';
 import { Checkbox } from '@/shared/components/ui/checkbox';
-import { ref, toRefs } from 'vue';
 
 const { id } = defineProps<{ id: string }>();
 

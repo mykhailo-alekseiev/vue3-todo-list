@@ -10,6 +10,7 @@ module.exports = {
 		parser: '@typescript-eslint/parser',
 	},
 	plugins: ['vue', 'prettier'],
+  ignorePatterns: ['auto-imports.d.ts'],
 	rules: {
 		'vue/no-v-html': 'off',
 		'vue/multi-word-component-names': 'off',

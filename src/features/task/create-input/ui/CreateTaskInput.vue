@@ -22,7 +22,6 @@ import { useTaskModel } from '@/entities/task';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { PlusIcon } from 'lucide-vue-next';
-import { ref } from 'vue';
 
 const taskModel = useTaskModel();
 

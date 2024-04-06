@@ -19,10 +19,11 @@
 import LoadingScreen from '@/shared/components/LoadingScreen.vue';
 import { Toaster } from '@components/ui/sonner';
 import { DefaultLayout } from '@layouts/default-layout';
-import { computed } from 'vue';
-import { RouterView } from 'vue-router';
-import { useRoute } from 'vue-router';
+import { useHead } from '@unhead/vue';
 
+useHead({
+	titleTemplate: (title) => (title ? `${title} - Vue app` : 'Vue app'),
+});
 const route = useRoute();
 
 const layout = computed(() => route.meta.layout || DefaultLayout);

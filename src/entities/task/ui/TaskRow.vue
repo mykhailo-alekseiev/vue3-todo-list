@@ -20,7 +20,6 @@
 <script setup lang="ts">
 import { cn } from '@/shared/lib/utils';
 import type { Task } from 'src/entities/task/types';
-import { toRefs } from 'vue';
 
 type TaskRowProps = Pick<Task, 'title' | 'isDone'>;
 type TaskRowEmits = {
