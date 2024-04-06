@@ -1,25 +1,11 @@
-import { Ref } from 'vue';
-
 type Options = {
 	lazy: boolean;
 };
 
-interface UseAsyncFetchReturn<T = any> {
-	data: Ref<T | null>;
-	error: Ref<string | null>;
-	loading: Ref<boolean>;
-	execute: () => Promise<
-		{ data: Awaited<T>; error: null } | { data: null; error: string }
-	>;
-	refetch: () => Promise<
-		{ data: Awaited<T>; error: null } | { data: null; error: string }
-	>;
-}
-
 export const useAsyncFetch = <T = any>(
 	func: () => Promise<T>,
 	options?: Options,
-): UseAsyncFetchReturn<T> => {
+) => {
 	const data = ref<T | null>(null);
 	const error = ref<string | null>(null);
 	const loading = ref(false);
@@ -51,6 +37,5 @@ export const useAsyncFetch = <T = any>(
 		}
 	});
 
-	// @ts-ignore
 	return { data, loading, error, execute, refetch: execute };
 };
