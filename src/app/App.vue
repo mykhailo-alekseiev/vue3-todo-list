@@ -19,7 +19,6 @@
 import LoadingScreen from '@/shared/components/LoadingScreen.vue';
 import { Toaster } from '@components/ui/sonner';
 import { DefaultLayout } from '@layouts/default-layout';
-import { useHead } from '@unhead/vue';
 
 useHead({
 	titleTemplate: (title) => (title ? `${title} - Vue app` : 'Vue app'),

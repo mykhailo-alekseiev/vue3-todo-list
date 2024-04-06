@@ -33,6 +33,10 @@ import { storeToRefs } from 'pinia';
 import { useRoute, useRouter } from 'vue-router';
 import TaskList from './TaskList.vue';
 
+useHead({
+	title: 'Task list',
+});
+
 const router = useRouter();
 const route = useRoute();
 

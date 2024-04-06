@@ -19,6 +19,9 @@ import { RouteName } from '@/shared/config/routes';
 import { useRouter } from 'vue-router';
 import { toast } from 'vue-sonner';
 
+useHead({
+	title: 'Login',
+});
 const router = useRouter();
 
 const { loginByEmail } = useAuthModel();
@@ -37,4 +40,3 @@ const handleFormSubmit = async (values: EmailLogInFormType) => {
 	}
 };
 </script>
-@/features/email-login

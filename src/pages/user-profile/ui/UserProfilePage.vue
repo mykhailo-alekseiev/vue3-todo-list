@@ -13,6 +13,10 @@
 import { useUserModel } from '@/entities/user';
 import { storeToRefs } from 'pinia';
 
+useHead({
+	title: 'User profile',
+});
+
 const { email, id, username } = storeToRefs(useUserModel());
 
 await useUserModel().fetchUser();
