@@ -1,4 +1,4 @@
-import { type Pinia, type Store, getActivePinia } from 'pinia';
+import { type Pinia, type Store } from 'pinia';
 
 interface ExtendedPinia extends Pinia {
 	_s: Map<string, Store>;

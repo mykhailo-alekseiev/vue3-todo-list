@@ -1,5 +1,4 @@
 import { resetAppStore } from '@/shared/lib/pinia';
-import { defineStore } from 'pinia';
 import { AuthApi } from './index';
 
 type AuthModel = {

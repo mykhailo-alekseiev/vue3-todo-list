@@ -29,7 +29,6 @@ import { Checkbox } from '@components/ui/checkbox';
 import { Input } from '@components/ui/input';
 import { Label } from '@components/ui/label';
 import { vAutoAnimate } from '@formkit/auto-animate/vue';
-import { storeToRefs } from 'pinia';
 import { useRoute, useRouter } from 'vue-router';
 import TaskList from './TaskList.vue';
 

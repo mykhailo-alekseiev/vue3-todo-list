@@ -29,6 +29,7 @@ export default defineConfig({
 				// presets
 				'vue',
 				'vue-router',
+				'pinia',
 				unheadVueComposablesImports,
 			],
 		}),

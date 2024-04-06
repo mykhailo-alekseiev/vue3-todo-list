@@ -21,7 +21,6 @@ import { TaskRow, useTaskModel } from '@/entities/task';
 import { DeleteTaskButton } from '@/features/task/delete-button';
 import { IsDoneTaskCheckbox } from '@/features/task/is-done-checkbox';
 import { vAutoAnimate } from '@formkit/auto-animate/vue';
-import { storeToRefs } from 'pinia';
 
 const taskModel = useTaskModel();
 

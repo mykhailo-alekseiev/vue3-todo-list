@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
 import { useUserModel } from '@/entities/user';
-import { storeToRefs } from 'pinia';
 
 useHead({
 	title: 'User profile',

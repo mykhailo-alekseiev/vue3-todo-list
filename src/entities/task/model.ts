@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia';
 import type { UpdateTaskDto } from './api';
 import { type Task, TaskApi } from './index';
 import type { TaskListFilters } from './types';

@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia';
 import { type User, UserApi } from './index';
 
 type UserModel = User;
